@@ -1822,7 +1822,11 @@ server:
     # -- Enable an ingress resource for the Argo CD server
     enabled: enable
     # -- Additional ingress annotations
-    annotations: {}
+    annotations: {
+      "kubernetes.io/ingress.class": "nginx",
+      "nginx.ingress.kubernetes.io/force-ssl-redirect": "true",
+      "nginx.ingress.kubernetes.io/backend-protocol": "HTTP"
+    }
     # -- Additional ingress labels
     labels: {}
     # -- Defines which ingress controller will implement the resource
