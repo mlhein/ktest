@@ -1478,7 +1478,8 @@ server:
   imagePullSecrets: []
 
   # -- Additional command line arguments to pass to Argo CD server
-  extraArgs: []
+  extraArgs:
+    - --insecure
 
   # -- Environment variables to pass to Argo CD server
   env: []
@@ -1820,7 +1821,7 @@ server:
 
   ingress:
     # -- Enable an ingress resource for the Argo CD server
-    enabled: false
+    enabled: enable
     # -- Additional ingress annotations
     annotations: {}
     # -- Additional ingress labels
@@ -1832,8 +1833,8 @@ server:
     ## Argo Ingress.
     ## Hostnames must be provided if Ingress is enabled.
     ## Secrets must be manually created in the namespace
-    hosts: []
-      # - argocd.example.com
+    hosts:
+      - argocd.localhost
 
     # -- List of ingress paths
     paths:
