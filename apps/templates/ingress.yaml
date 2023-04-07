@@ -10,7 +10,7 @@ spec:
     namespace: default
   project: default
   source:
-    path: charts/nginx
+    path: charts/nginx-ingress-controller
     repoURL: https://github.com/mlhein/ktest.git
     targetRevision: HEAD
   syncPolicy:
