@@ -41,10 +41,10 @@ labels: {}
 
 ## Additional container arguments
 ##
-# extraArgs:
+extraArgs:
 #   - --enable-skip-login
 #   - --enable-insecure-login
-#   - --system-banner="Welcome to Kubernetes"
+  - --system-banner="Welcome to Me Kubernetes"
 
 ## Additional container environment variables
 ##
@@ -183,7 +183,7 @@ ingress:
   ## If you use ingress-nginx < 0.21.0
   #   nginx.ingress.kubernetes.io/secure-backends: "true"
   ## if you use ingress-nginx >= 0.21.0
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 
   ## Kubernetes Dashboard Ingress Class
   className: "nginx"
