@@ -189,7 +189,7 @@ configs:
       - config:
           issuer: http://authentik.localhost/application/o/argocd
           clientID: ae0bff49ed3c5def42245ed570a083cfd917093e
-          clientSecret: 72c7a48228b1f38aef859e41c1d50bf8cbf927d6d170144be7350ed8768224aa3df83f35f2533ecc826989097ab39d77375e02868ecdad15209a10bc625e7dfe
+          clientSecret: $dex.authentik.clientSecret
           insecureEnableGroups: true
           scopes:
             - openid
@@ -513,8 +513,9 @@ configs:
     ## Ref: https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/#sensitive-data-and-sso-client-secrets
     ## Note that all values must be non-empty.
     extra:
-      {}
+      # {}
       # LDAP_PASSWORD: "mypassword"
+      dex.authentik.clientSecret: "NzJjN2E0ODIyOGIxZjM4YWVmODU5ZTQxYzFkNTBiZjhjYmY5MjdkNmQxNzAxNDRiZTczNTBlZDg3NjgyMjRhYTNkZjgzZjM1ZjI1MzNlY2M4MjY5ODkwOTdhYjM5ZDc3Mzc1ZTAyODY4ZWNkYWQxNTIwOWExMGJjNjI1ZTdkZmU="
 
     # -- Argo TLS Data
     # DEPRECATED - Use server.certificate or server.certificateSecret
