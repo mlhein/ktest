@@ -162,7 +162,7 @@ configs:
     annotations: {}
 
     # -- Argo CD's externally facing base URL (optional). Required when configuring SSO
-    url: "https://argocd.localhost"
+    url: "http://argocd.localhost"
 
     # -- The name of tracking label used by Argo CD for resource pruning
     # @default -- Defaults to app.kubernetes.io/instance
@@ -193,7 +193,7 @@ configs:
           name: authentik
           id: authentik
           config:
-            issuer: https://authentik.localhost/application/o/argocd
+            issuer: http://authentik.localhost/application/o/argocd
             clientID: ae0bff49ed3c5def42245ed570a083cfd917093e
             clientSecret: $dex.authentik.clientSecret
             insecureEnableGroups: true
