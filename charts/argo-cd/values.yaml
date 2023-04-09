@@ -162,7 +162,7 @@ configs:
     annotations: {}
 
     # -- Argo CD's externally facing base URL (optional). Required when configuring SSO
-    url: "http://argocd.localhost"
+    url: "https://argocd.localhost/"
 
     # -- The name of tracking label used by Argo CD for resource pruning
     # @default -- Defaults to app.kubernetes.io/instance
@@ -193,7 +193,7 @@ configs:
           name: authentik
           id: authentik
           config:
-            issuer: http://authentik.localhost/application/o/argocd
+            issuer: https://authentik.localhost/application/o/argocd
             clientID: ae0bff49ed3c5def42245ed570a083cfd917093e
             clientSecret: $dex.authentik.clientSecret
             insecureEnableGroups: true
@@ -531,9 +531,7 @@ configs:
     ## Ref: https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/#sensitive-data-and-sso-client-secrets
     ## Note that all values must be non-empty.
     extra:
-      {
-        "dex.authentik.clientSecret": "NzJjN2E0ODIyOGIxZjM4YWVmODU5ZTQxYzFkNTBiZjhjYmY5MjdkNmQxNzAxNDRiZTczNTBlZDg3NjgyMjRhYTNkZjgzZjM1ZjI1MzNlY2M4MjY5ODkwOTdhYjM5ZDc3Mzc1ZTAyODY4ZWNkYWQxNTIwOWExMGJjNjI1ZTdkZmU=",
-      }
+        dex.authentik.clientSecret: "NzJjN2E0ODIyOGIxZjM4YWVmODU5ZTQxYzFkNTBiZjhjYmY5MjdkNmQxNzAxNDRiZTczNTBlZDg3NjgyMjRhYTNkZjgzZjM1ZjI1MzNlY2M4MjY5ODkwOTdhYjM5ZDc3Mzc1ZTAyODY4ZWNkYWQxNTIwOWExMGJjNjI1ZTdkZmU="
       # LDAP_PASSWORD: "mypassword"
 
     # -- Argo TLS Data
