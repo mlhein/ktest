@@ -287,7 +287,7 @@ configs:
     # Role definitions and bindings are in the form:
     #  g, subject, inherited-subject
     policy.csv: |
-      g, ArgoCD Admins, role:admin
+        g, ArgoCD Admins, role:admin
     #   p, role:org-admin, applications, *, */*, allow
     #   p, role:org-admin, clusters, get, *, allow
     #   p, role:org-admin, repositories, *, *, allow
