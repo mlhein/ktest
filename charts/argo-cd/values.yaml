@@ -206,7 +206,7 @@ configs:
     # OIDC configuration as an alternative to dex (optional).
     oidc.config: |
         name: authentik
-        issuer: http://authentik.localhost/application/o/argocd
+        issuer: https://authentik.localhost/application/o/argocd
         clientID: ae0bff49ed3c5def42245ed570a083cfd917093e
         clientSecret: $dex.authentik.clientSecret
         requestedScopes:
