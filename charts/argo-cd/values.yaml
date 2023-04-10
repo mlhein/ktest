@@ -187,33 +187,55 @@ configs:
     timeout.hard.reconciliation: 0s
 
     # Dex configuration
-    dex.config: |
-      connectors:
-        type: oidc
-        name: authentik
-        id: oidc
-        config:
-          issuer: https://authentik.localhost/application/o/argocd
-          clientID: ae0bff49ed3c5def42245ed570a083cfd917093e
-          clientSecret: $dex.authentik.clientSecret
-          insecureEnableGroups: true
-          scopes:
-            - openid
-            - profile
-            - email
-            - groups
+    # dex.config: |
+    #   connectors:
+    #     type: oidc
+    #     name: authentik
+    #     id: oidc
+    #     config:
+    #       issuer: https://authentik.localhost/application/o/argocd
+    #       clientID: ae0bff49ed3c5def42245ed570a083cfd917093e
+    #       clientSecret: $dex.authentik.clientSecret
+    #       insecureEnableGroups: true
+    #       scopes:
+    #         - openid
+    #         - profile
+    #         - email
+    #         - groups
 
     # OIDC configuration as an alternative to dex (optional).
-    # oidc.config: |
-    #     name: authentik
-    #     issuer: http://authentik.localhost/application/o/argocd
-    #     clientID: ae0bff49ed3c5def42245ed570a083cfd917093e
-    #     clientSecret: $dex.authentik.clientSecret
-    #     requestedScopes:
-    #       - openid
-    #       - profile
-    #       - email
-    #       - groups
+    oidc.config: |
+        name: authentik
+        issuer: http://authentik.localhost/application/o/argocd
+        clientID: ae0bff49ed3c5def42245ed570a083cfd917093e
+        clientSecret: $dex.authentik.clientSecret
+        requestedScopes:
+          - openid
+          - profile
+          - email
+          - groups
+        rootCA: |
+          -----BEGIN CERTIFICATE-----
+          MIIDcDCCAligAwIBAgIRANElVO6nYcWo27gWdiwW5gkwDQYJKoZIhvcNAQELBQAw
+          SzEQMA4GA1UEChMHQWNtZSBDbzE3MDUGA1UEAxMuS3ViZXJuZXRlcyBJbmdyZXNz
+          IENvbnRyb2xsZXIgRmFrZSBDZXJ0aWZpY2F0ZTAeFw0yMzA0MTAwODUzMzZaFw0y
+          NDA0MDkwODUzMzZaMEsxEDAOBgNVBAoTB0FjbWUgQ28xNzA1BgNVBAMTLkt1YmVy
+          bmV0ZXMgSW5ncmVzcyBDb250cm9sbGVyIEZha2UgQ2VydGlmaWNhdGUwggEiMA0G
+          CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDg91M6S+xl/FIXSxfZV2WT9b3Nbtlr
+          tiipYeMBOQALENfAc8pzlSagigVguMduNCEgx5JHbc/qWFqEILIVFuIRinJFzn7n
+          uH1TrZ3radD9YxDaVpesYpXhS36ZDrn/YcIZJw7ivJgE5DiO/xECn4Jv8DoyN78A
+          JU983XmrnTb1s8v58xmbRWY3Gak6uuTmIkz/PwklpdOKvUoxT6A58wYFqXnZhupW
+          65TvuWKXxeQb1u1uzSOPzl1+wrb/E6Me5bsv81vJCDI7T5ZI9lceD8MV01kYQEkH
+          bUdq2Nf2RsItPG1ywp+nB+ssROArbYqj7rGHjUYJS4EiWVyr9u2ldrSPAgMBAAGj
+          TzBNMA4GA1UdDwEB/wQEAwIFoDATBgNVHSUEDDAKBggrBgEFBQcDATAMBgNVHRMB
+          Af8EAjAAMBgGA1UdEQQRMA+CDWluZ3Jlc3MubG9jYWwwDQYJKoZIhvcNAQELBQAD
+          ggEBAKqiib3byc428PGSwZID78HeVOJzLi/x8haPo59lPPscYSVDSpGmzJf6snbh
+          LKxFUTZlul2BLeatUP749o02y4TcHSemiphk6G7LTP/3Lx3NR7yTI1TgnZ1vWQJN
+          SD8N7OhvTNRxTNgWLQCrWsS0Zl3xAIDh0dujXNVSQm8weyuLYpamfChDVSvd/oEY
+          3ETVabDC8Oddb1CKh10AlkgC70srlU6WkgEMNEyIZxCj4DGZ7RFbQBCUIPg3HKzW
+          UHuDaGp4gNawDFxF1PvrEr2GCMOg6hQY0/rapvPiuPUEuf1AJRiOb9VAq9DZQB3l
+          rpNWz5CVMtQzQeXr9hkmFhtdQHI=
+          -----END CERTIFICATE-----
     #   name: AzureAD
     #   issuer: https://login.microsoftonline.com/TENANT_ID/v2.0
     #   clientID: CLIENT_ID
