@@ -189,19 +189,19 @@ configs:
     # Dex configuration
     dex.config: |
       connectors:
-        - type: OIDC
-          name: authentik
-          id: OIDC
-          config:
-            issuer: http://authentik.localhost/application/o/argocd
-            clientID: ae0bff49ed3c5def42245ed570a083cfd917093e
-            clientSecret: $dex.authentik.clientSecret
-            insecureEnableGroups: true
-            scopes:
-              - openid
-              - profile
-              - email
-              - groups
+        type: oidc
+        name: authentik
+        id: oidc
+        config:
+          issuer: https://authentik.localhost/application/o/argocd
+          clientID: ae0bff49ed3c5def42245ed570a083cfd917093e
+          clientSecret: $dex.authentik.clientSecret
+          insecureEnableGroups: true
+          scopes:
+            - openid
+            - profile
+            - email
+            - groups
 
     # OIDC configuration as an alternative to dex (optional).
     # oidc.config: |
